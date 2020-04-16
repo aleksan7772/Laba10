@@ -1,6 +1,7 @@
 package Packages.citizen;
 
-import java.util.Random;
+
+import java.util.Objects;
 
 /**
  * Паспорт гражданина
@@ -10,10 +11,6 @@ public class Passport {
     private String id;
     private String spouseId;
     private String country;
-
-    public Passport() {
-
-    }
 
     public Passport(String name, String id, String country) {
         this.name = name;
@@ -45,5 +42,21 @@ public class Passport {
                 ", spouseId='" + spouseId + '\'' +
                 ", country='" + country + '\'' +
                 '}' ;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Passport passport = (Passport) o;
+        return name.equals(passport.name) &&
+                id.equals(passport.id) &&
+                spouseId.equals(passport.spouseId) &&
+                country.equals(passport.country);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, id, spouseId, country);
     }
 }

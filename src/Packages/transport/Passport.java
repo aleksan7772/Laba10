@@ -1,12 +1,24 @@
 package Packages.transport;
 
+import java.util.Arrays;
+
 /**
  * Паспорт на авто
  */
 public class Passport {
     private String name;
-    private int[] number;
+    private String number;
     private String country;
+
+    public Passport(String name, String number, String country) {
+        this.name = name;
+        this.number = number;
+        this.country = country;
+    }
+
+    public Passport() {
+
+    }
 
     public String getName() {
         return name;
@@ -16,11 +28,11 @@ public class Passport {
         this.name = name;
     }
 
-    public int[] getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(int[] number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 
@@ -32,6 +44,12 @@ public class Passport {
         this.country = country;
     }
 
-    public void setNumber(int random) {
+    @Override
+    public String toString() {
+        return "Passport{" +
+                "name='" + name + '\'' +
+                ", number='" + number + '\'' +
+                ", country='" + country + '\'' +
+                '}';
     }
 }
